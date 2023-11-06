@@ -4,11 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function NotFound() {
     const navigate = useNavigate();
-    const [isHover, setIsHover] = useState(false);
-
-    function toggleHover() {
-        setIsHover((prev) => !prev);
-    }
 
     return (
         <Center w="100%" h="100vh">
@@ -39,12 +34,10 @@ export default function NotFound() {
                         fontFamily="Bungee Spice"
                         fontSize="90px"
                         fontWeight="bold"
-                        onMouseOver={toggleHover}
-                        onMouseLeave={toggleHover}
                         _hover={{
                             cursor: "pointer",
+                            transform: "scale(130%)",
                         }}
-                        transform={isHover ? "scale(1.3)" : "scale(1.0)"}
                         transition={"all 0.2s linear"}
                         onClick={() => {
                             navigate("/");
