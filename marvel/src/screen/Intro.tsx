@@ -45,6 +45,8 @@ export default function Intro() {
                             fontSize="70px"
                             _hover={{
                                 cursor: "pointer",
+                                transform: "scale(1.3)",
+                                transition: "all 0.2s linear",
                             }}
                             onMouseOver={toggleHover}
                             onMouseLeave={toggleHover}
@@ -61,7 +63,7 @@ export default function Intro() {
                         bottom={SCREEN_HEIGHT}
                         spacing={0}
                         opacity={isHover ? 1 : 0}
-                        transition={"all 0.5s linear"}
+                        transition={"all 0.4s linear"}
                         transform={
                             isHover ? `translateY(${SCREEN_HEIGHT}px)` : ""
                         }
