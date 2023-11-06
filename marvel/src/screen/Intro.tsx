@@ -46,8 +46,8 @@ export default function Intro() {
                             _hover={{
                                 cursor: "pointer",
                                 transform: "scale(1.3)",
-                                transition: "all 0.2s linear",
                             }}
+                            transition="all 0.2s linear"
                             onMouseOver={toggleHover}
                             onMouseLeave={toggleHover}
                             onClick={() => {
