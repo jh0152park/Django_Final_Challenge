@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import NotFound from "./components/NotFound";
 import Intro from "./screen/Intro";
 import Comics from "./screen/Comics";
+import Characters from "./screen/Characters";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,21 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: <Comics />,
+            },
+            // {
+            //     path: "comics",
+            //     element: <Comics />,
+            // },
+        ],
+    },
+    {
+        path: "/characters",
+        element: <Layout />,
+        errorElement: <NotFound />,
+        children: [
+            {
+                path: "",
+                element: <Characters />,
             },
             // {
             //     path: "comics",
