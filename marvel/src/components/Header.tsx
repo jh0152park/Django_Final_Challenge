@@ -52,18 +52,28 @@ export default function Header() {
                         spacing="30px"
                     >
                         <Center
-                            _hover={{ cursor: "pointer" }}
+                            h="100%"
+                            _hover={{
+                                cursor: "pointer",
+                                borderBottom: "3px solid red",
+                            }}
                             onClick={onComicsClick}
                             color={currentTab === "COMICS" ? "white" : "gray"}
+                            borderBottom="3px solid #181818"
                         >
                             COMICS
                         </Center>
                         <Center
-                            _hover={{ cursor: "pointer" }}
+                            h="100%"
+                            _hover={{
+                                cursor: "pointer",
+                                borderBottom: "3px solid red",
+                            }}
                             onClick={onCharactersClick}
                             color={
                                 currentTab === "CHARACTERS" ? "white" : "gray"
                             }
+                            borderBottom="3px solid #181818"
                         >
                             CHARACTERS
                         </Center>
