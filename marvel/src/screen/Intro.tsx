@@ -1,10 +1,12 @@
 import { Box, Center, HStack, Heading, Image, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 
 const SCREEN_HEIGHT = window.innerHeight;
 
 export default function Intro() {
+    const navigate = useNavigate();
     const [isHover, setIsHover] = useState(false);
 
     function toggleHover() {
@@ -46,6 +48,9 @@ export default function Intro() {
                             }}
                             onMouseOver={toggleHover}
                             onMouseLeave={toggleHover}
+                            onClick={() => {
+                                navigate("/comics");
+                            }}
                         >
                             HEIMDALL OPEN THE BIFROST !!
                         </Heading>
