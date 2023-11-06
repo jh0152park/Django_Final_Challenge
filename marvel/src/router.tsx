@@ -8,17 +8,22 @@ import Comics from "./screen/Comics";
 const router = createBrowserRouter([
     {
         path: "/",
+        element: <Intro />,
+        errorElement: <NotFound />,
+    },
+    {
+        path: "/comics",
         element: <Layout />,
         errorElement: <NotFound />,
         children: [
             {
                 path: "",
-                element: <Intro />,
-            },
-            {
-                path: "comics",
                 element: <Comics />,
             },
+            // {
+            //     path: "comics",
+            //     element: <Comics />,
+            // },
         ],
     },
 ]);
