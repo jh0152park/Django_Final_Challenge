@@ -7,6 +7,8 @@ import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./global.css";
 
+// marvel logo: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/220px-Marvel_Logo.svg.png
+
 const GlobalStyles = createGlobalStyle`
   ${reset}
   body {
