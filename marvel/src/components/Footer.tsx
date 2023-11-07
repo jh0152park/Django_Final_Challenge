@@ -1,6 +1,7 @@
 import { Center, HStack, Image, VStack } from "@chakra-ui/react";
 import DarkWord from "./Footer/DarkWord";
 import AboutMarvel from "./Footer/AboutMarvel";
+import Advertising from "./Footer/Advertising";
 
 export default function Footer() {
     return (
@@ -14,6 +15,7 @@ export default function Footer() {
                         src={require("../resource/images/footer/marvel_logo.jpg")}
                     />
                     <AboutMarvel />
+                    <Advertising />
                 </HStack>
                 <HStack spacing="20px" mt="100px">
                     <DarkWord name="Terms of Use" hover={true} />
