@@ -7,7 +7,7 @@ import Follow from "./Footer/Follow";
 
 export default function Footer() {
     return (
-        <Center w="100%" h="350px" bg="#181818" pt="30px">
+        <Center w="100%" h="350px" bg="#181818" pt="30px" mt="50px">
             <VStack>
                 <HStack h="120px">
                     <Image
