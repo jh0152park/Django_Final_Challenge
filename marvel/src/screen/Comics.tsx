@@ -20,7 +20,7 @@ export default function Comics() {
             </Helmet>
 
             <ComicsBanner />
-            <Box w="100%" h="100vh" px="350px" pt="100px">
+            <Box w="100%" px="350px" pt="100px">
                 <Title />
                 <Grid templateColumns="repeat(5, 1fr)" gap="20px">
                     {/* <Box
