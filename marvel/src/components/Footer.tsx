@@ -3,10 +3,11 @@ import DarkWord from "./Footer/DarkWord";
 import AboutMarvel from "./Footer/AboutMarvel";
 import Advertising from "./Footer/Advertising";
 import CoCompany from "./Footer/CoCompany";
+import Follow from "./Footer/Follow";
 
 export default function Footer() {
     return (
-        <Center w="100%" h="350px" bg="#181818">
+        <Center w="100%" h="350px" bg="#181818" pt="30px">
             <VStack>
                 <HStack h="120px">
                     <Image
@@ -18,6 +19,7 @@ export default function Footer() {
                     <AboutMarvel />
                     <Advertising />
                     <CoCompany />
+                    <Follow />
                 </HStack>
                 <HStack spacing="20px" mt="100px">
                     <DarkWord name="Terms of Use" hover={true} />

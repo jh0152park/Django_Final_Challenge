@@ -2,9 +2,9 @@ import { Center, HStack, Image, Text, VStack } from "@chakra-ui/react";
 
 export default function CoCompany() {
     return (
-        <VStack>
+        <VStack ml="100px">
             <HStack _hover={{ cursor: "pointer" }}>
-                <Center w="60px" mr="25px" ml="80px">
+                <Center w="60px" mr="25px">
                     <Image
                         w="100%"
                         objectFit="cover"
@@ -30,7 +30,7 @@ export default function CoCompany() {
             </HStack>
 
             <HStack mt="10px" _hover={{ cursor: "pointer" }}>
-                <Center w="60px" mr="25px" ml="80px">
+                <Center w="60px" mr="25px">
                     <Image
                         w="100%"
                         objectFit="cover"
