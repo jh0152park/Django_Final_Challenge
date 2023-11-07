@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
-import Banner from "../components/Banner";
+import CharactersBanner from "../components/CharactersBanner";
 
 export default function Characters() {
     return (
@@ -9,7 +9,7 @@ export default function Characters() {
                 <title>Marvel Characters</title>
             </Helmet>
 
-            <Banner category="characters" />
+            <CharactersBanner />
 
             <Heading>CHARACTERS</Heading>
             <Box
