@@ -1,6 +1,6 @@
 import { Box, Image, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
-import { joinCreator, updateThumbnail } from "../../util/util";
+import { go_to_top, joinCreator, updateThumbnail } from "../../util/util";
 import { useNavigate } from "react-router-dom";
 
 interface ICreator {
@@ -27,6 +27,7 @@ export default function Comic({ id, title, thumbnail, creator }: IPorps) {
     if (newThumbnail !== "none") thumbnail = newThumbnail;
 
     function onComicsClick() {
+        go_to_top(0);
         navigate(`/comics/${id}`);
     }
 
@@ -69,6 +70,7 @@ export default function Comic({ id, title, thumbnail, creator }: IPorps) {
                 _hover={{
                     color: "red.500",
                 }}
+                mt="5px"
             >
                 {writer}
             </Text>

@@ -8,6 +8,8 @@ import Loading from "./Comics/Loading";
 import { ComicsResponse } from "../types";
 import Comic from "./Comics/Comic";
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { ComicsThumbnail } from "../ProjectCommon";
 
 export default function Comics() {
     const loadingArray = Array.from({ length: 20 }, () => 0);
@@ -16,6 +18,19 @@ export default function Comics() {
         listComics
     );
     const Comics = data?.data.results;
+    const setComicsThumbnails = useSetRecoilState(ComicsThumbnail);
+
+    if (Comics) {
+        let db = [];
+        for (var i = 0; i < Comics.length; i++) {
+            db.push({
+                id: Comics[i].id,
+                thumbnail: `${Comics[i].thumbnail.path}.${Comics[i].thumbnail.extension}`,
+            });
+        }
+        // console.log(db);
+        setComicsThumbnails(db);
+    }
 
     return (
         <>
