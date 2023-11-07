@@ -6,7 +6,7 @@ export interface Thumbnail {
 export interface Item {
     resourceURI: string;
     name: string;
-    rold?: string;
+    role?: string;
 }
 
 export interface Comics {
