@@ -23,7 +23,7 @@ export default function Comics() {
             </Helmet>
 
             <ComicsBanner />
-            <Box w="100%" px="350px" pt="100px">
+            <Box w="100%" px="350px" pt="100px" mb="50px">
                 <Title />
                 <Grid templateColumns="repeat(5, 1fr)" gap="20px">
                     {isLoading

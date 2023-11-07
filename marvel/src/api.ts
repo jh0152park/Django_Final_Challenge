@@ -1,4 +1,5 @@
-import { QueryFunctionContext } from "@tanstack/react-query";
+// import { QueryFunctionContext } from "@tanstack/react-query";
+import { QueryFunctionContext } from "react-query";
 import {
     CharacterDetailResponse,
     CharactersResponse,
