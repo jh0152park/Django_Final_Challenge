@@ -17,6 +17,7 @@ export default function Background({ url }: { url: string }) {
         textShadow: "0 0 20px black",
         fontWeight: "bold",
         fontSize: "20px",
+        background: "rgba(0, 0, 0, 0.5)",
     };
 
     return (
