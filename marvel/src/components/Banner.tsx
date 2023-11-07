@@ -11,7 +11,12 @@ export default function Banner({ category }: IProps) {
             : require("../resource/images/characters_banner.jpg");
 
     return (
-        <Box w="100%" h="450px" bgColor="#111111" position="relative">
+        <Box
+            w="100%"
+            h={category === "comics" ? "570px" : "450px"}
+            bgColor="#111111"
+            position="relative"
+        >
             <Image w="100%" h="100%" objectFit="cover" src={bannerImage} />
 
             <Center
