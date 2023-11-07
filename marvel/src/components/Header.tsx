@@ -23,8 +23,6 @@ export default function Header() {
         if (location.pathname !== "/characters") navigate("/characters");
     }
 
-    console.log(location.pathname);
-
     return (
         <Center w="100%" h="100px" bg="#181818">
             <VStack w="100%" h="100%" spacing="0">

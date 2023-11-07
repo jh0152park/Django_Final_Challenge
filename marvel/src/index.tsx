@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
 import { ChakraProvider } from "@chakra-ui/react";
 import { RecoilRoot } from "recoil";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import "./global.css";
 
 const GlobalStyles = createGlobalStyle`
