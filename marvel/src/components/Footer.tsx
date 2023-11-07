@@ -2,6 +2,7 @@ import { Center, HStack, Image, VStack } from "@chakra-ui/react";
 import DarkWord from "./Footer/DarkWord";
 import AboutMarvel from "./Footer/AboutMarvel";
 import Advertising from "./Footer/Advertising";
+import CoCompany from "./Footer/CoCompany";
 
 export default function Footer() {
     return (
@@ -16,6 +17,7 @@ export default function Footer() {
                     />
                     <AboutMarvel />
                     <Advertising />
+                    <CoCompany />
                 </HStack>
                 <HStack spacing="20px" mt="100px">
                     <DarkWord name="Terms of Use" hover={true} />
