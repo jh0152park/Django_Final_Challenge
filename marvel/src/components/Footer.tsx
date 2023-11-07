@@ -1,17 +1,26 @@
-import { Center, HStack, VStack } from "@chakra-ui/react";
-import DarkButton from "./Footer/DarkButton";
+import { Center, HStack, Image, VStack } from "@chakra-ui/react";
+import DarkWord from "./Footer/DarkWord";
+import AboutMarvel from "./Footer/AboutMarvel";
 
 export default function Footer() {
     return (
         <Center w="100%" h="350px" bg="#181818">
             <VStack>
-                <HStack></HStack>
-                <HStack spacing="20px">
-                    <DarkButton name="Terms of Use" hover={true} />
-                    <DarkButton name="Privacy Policy" hover={true} />
-                    <DarkButton name="Interest-Based Ads" hover={true} />
-                    <DarkButton name="License Agreement" hover={true} />
-                    <DarkButton name="ⓒ2023 MARVEL" />
+                <HStack h="120px">
+                    <Image
+                        w="80px"
+                        h="100%"
+                        objectFit="cover"
+                        src={require("../resource/images/footer/marvel_logo.jpg")}
+                    />
+                    <AboutMarvel />
+                </HStack>
+                <HStack spacing="20px" mt="100px">
+                    <DarkWord name="Terms of Use" hover={true} />
+                    <DarkWord name="Privacy Policy" hover={true} />
+                    <DarkWord name="Interest-Based Ads" hover={true} />
+                    <DarkWord name="License Agreement" hover={true} />
+                    <DarkWord name="ⓒ2023 MARVEL" />
                 </HStack>
             </VStack>
         </Center>

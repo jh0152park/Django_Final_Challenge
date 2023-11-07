@@ -5,7 +5,7 @@ interface IProps {
     hover?: boolean;
 }
 
-export default function DarkButton({ name, hover }: IProps) {
+export default function DarkWord({ name, hover }: IProps) {
     return (
         <Text
             color="rgba(255,255,255,0.3)"
