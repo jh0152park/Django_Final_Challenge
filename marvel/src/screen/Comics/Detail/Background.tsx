@@ -21,9 +21,11 @@ export default function Background({ url }: { url: string }) {
 
     return (
         <Box sx={outerBoxStyles}>
-            <Box sx={innerBoxStyles} backdropFilter="auto" backdropBlur="10px">
-                Box with Backdrop Blur
-            </Box>
+            <Box
+                sx={innerBoxStyles}
+                backdropFilter="auto"
+                backdropBlur="10px"
+            ></Box>
         </Box>
     );
 }
