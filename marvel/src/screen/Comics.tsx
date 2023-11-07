@@ -17,8 +17,7 @@ export default function Comics() {
             </Helmet>
 
             <Banner category="comics" />
-
-            <Heading>COMICS</Heading>
+            <Box w="100%" h="100vh" px="150px"></Box>
         </>
     );
 }
