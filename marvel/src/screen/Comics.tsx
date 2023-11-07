@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { useQuery } from "react-query";
 import { listComics } from "../api";
 import ComicsBanner from "../components/ComicsBanner";
+import Title from "./Comics/Title";
 
 export default function Comics() {
     const { isLoading, data } = useQuery(["comics"], listComics);
@@ -17,7 +18,9 @@ export default function Comics() {
             </Helmet>
 
             <ComicsBanner />
-            <Box w="100%" h="100vh" px="150px"></Box>
+            <Box w="100%" h="100vh" px="350px" pt="100px">
+                <Title />
+            </Box>
         </>
     );
 }
