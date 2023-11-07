@@ -46,7 +46,7 @@ export default function Header() {
                     <HStack
                         h="100%"
                         fontWeight="bold"
-                        fontSize="11px"
+                        fontSize="12px"
                         spacing="30px"
                     >
                         <Center
@@ -58,6 +58,7 @@ export default function Header() {
                             onClick={onComicsClick}
                             color={currentTab === "COMICS" ? "white" : "gray"}
                             borderBottom="3px solid #181818"
+                            fontFamily="Roboto Condensed"
                         >
                             COMICS
                         </Center>
@@ -72,6 +73,7 @@ export default function Header() {
                                 currentTab === "CHARACTERS" ? "white" : "gray"
                             }
                             borderBottom="3px solid #181818"
+                            fontFamily="Roboto Condensed"
                         >
                             CHARACTERS
                         </Center>

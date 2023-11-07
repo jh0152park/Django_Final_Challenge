@@ -15,8 +15,10 @@ export default function CharactersBanner() {
                 bgColor="rgba(0, 0, 0, 0.7)"
             >
                 <VStack color="white" spacing="20px">
-                    <Heading fontSize="45px">MARVEL CHARACTERS</Heading>
-                    <Text fontSize="18px">
+                    <Heading fontSize="45px" fontFamily="Roboto Condensed">
+                        MARVEL CHARACTERS
+                    </Heading>
+                    <Text fontSize="18px" fontFamily="Roboto Condensed">
                         Get hooked on a hearty helping of heroes and villains
                         from the humble House of Ideas!
                     </Text>
