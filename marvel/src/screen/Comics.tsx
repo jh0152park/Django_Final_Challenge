@@ -7,6 +7,7 @@ import Title from "./Comics/Title";
 import Loading from "./Comics/Loading";
 import { ComicsResponse } from "../types";
 import Comic from "./Comics/Comic";
+import { useNavigate } from "react-router-dom";
 
 export default function Comics() {
     const loadingArray = Array.from({ length: 20 }, () => 0);
@@ -15,23 +16,6 @@ export default function Comics() {
         listComics
     );
     const Comics = data?.data.results;
-
-    // if (!isLoading && Comics) {
-    //     const id = Comics[0].id;
-    //     const title = Comics[0].title;
-    //     const image = Comics[0].thumbnail.path;
-    //     const type = Comics[0].thumbnail.extension;
-    //     const thumbnail = `${image}.${type}`;
-    //     const creator_number = Comics[0].creators.available;
-    //     const creators = Comics[0].creators.items;
-    //     const genre = Comics[0].format;
-
-    //     console.log(id);
-    //     console.log(title);
-    //     console.log(thumbnail);
-    //     console.log(genre);
-    //     console.log(creators);
-    // }
 
     return (
         <>
@@ -49,6 +33,7 @@ export default function Comics() {
                           ))
                         : Comics?.map((comic) => (
                               <Comic
+                                  id={comic.id}
                                   key={comic.id}
                                   title={comic.title}
                                   creator={comic.creators.items}
