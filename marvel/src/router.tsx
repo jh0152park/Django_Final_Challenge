@@ -23,7 +23,7 @@ const router = createBrowserRouter([
                 element: <Comics />,
             },
             {
-                path: "/comics/:comicsId",
+                path: "/comics/:comicId",
                 element: <ComicsDetail />,
             },
         ],

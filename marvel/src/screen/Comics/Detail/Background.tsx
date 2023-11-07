@@ -1,8 +1,29 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Flex, Image } from "@chakra-ui/react";
 
 export default function Background({ url }: { url: string }) {
-    console.log(`bg url: ${url}`);
+    const outerBoxStyles = {
+        w: "100%",
+        h: "100vh",
+        background: `url(${url}) center/cover no-repeat`,
+    };
+
+    const innerBoxStyles = {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        boxSize: "full",
+        color: "white",
+        textShadow: "0 0 20px black",
+        fontWeight: "bold",
+        fontSize: "20px",
+    };
+
     return (
-        <Box w="100%" h="100%" filter="auto" blur="5px" background={url}></Box>
+        <Box sx={outerBoxStyles}>
+            <Box sx={innerBoxStyles} backdropFilter="auto" backdropBlur="10px">
+                Box with Backdrop Blur
+            </Box>
+        </Box>
     );
 }
