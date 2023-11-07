@@ -46,10 +46,21 @@ export default function ComicsBanner() {
                 px="350px"
                 pt="150px"
             >
-                <VStack color="white" spacing="20px" alignItems="flex-start">
-                    <Text fontWeight="bold">MARVEL'S INFINITY COMICS</Text>
-                    <Heading mt="30px">'LOKI: AGENT OF ASGARD' SERIES</Heading>
-                    <Heading mt="-25px">FREE ON MARVEL UNLIMITED</Heading>
+                <VStack
+                    color="white"
+                    spacing="20px"
+                    alignItems="flex-start"
+                    fontFamily="Roboto Condensed"
+                >
+                    <Text fontWeight="bold" fontSize="20px">
+                        MARVEL'S INFINITY COMICS
+                    </Text>
+                    <Heading mt="20px" fontFamily="Roboto Condensed">
+                        'LOKI: AGENT OF ASGARD' SERIES
+                    </Heading>
+                    <Heading mt="-25px" fontFamily="Roboto Condensed">
+                        FREE ON MARVEL UNLIMITED
+                    </Heading>
                     <ReadBox
                         onClick={() => {
                             window.open(LokiURL, "_blank", "noopener");
