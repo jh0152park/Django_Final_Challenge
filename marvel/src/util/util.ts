@@ -1,3 +1,5 @@
+import { Item } from "../types";
+
 export function go_to_top(position: number): void {
     window.scrollTo({ top: position, behavior: "smooth" });
 }
@@ -16,4 +18,13 @@ export function updateThumbnail(title: string) {
     } else if (title === "Marvel Previews (2017)") {
         return "https://cdn.marvel.com/content/1x/msha_s2.jpg";
     } else return "none";
+}
+
+export function joinCreator(creators: Item[]) {
+    let creator = "";
+
+    if (!creators) return creator;
+    for (var i = 0; i < creators.length; i++) creator += creators[i].name + ",";
+
+    return creator.slice(0, -1);
 }

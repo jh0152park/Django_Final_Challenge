@@ -1,6 +1,6 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
-import { updateThumbnail } from "../../util/util";
+import { joinCreator, updateThumbnail } from "../../util/util";
 
 interface ICreator {
     resourceURI: string;
@@ -16,21 +16,18 @@ interface IPorps {
 
 export default function Comic({ title, thumbnail, creator }: IPorps) {
     let newThumbnail = "";
+    let writer = joinCreator(creator);
     const [isHover, setIsHover] = useState(false);
 
     newThumbnail = updateThumbnail(title);
     if (newThumbnail !== "none") thumbnail = newThumbnail;
 
-    function toggleIsHover() {
-        setIsHover((prev) => !prev);
-    }
-
     return (
         <Box
-            mb="20px"
             w="240px"
-            onMouseOver={toggleIsHover}
-            onMouseLeave={toggleIsHover}
+            mb="20px"
+            onMouseOver={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
             _hover={{
                 cursor: "pointer",
             }}
@@ -53,6 +50,18 @@ export default function Comic({ title, thumbnail, creator }: IPorps) {
                 color={isHover ? "red.500" : "black"}
             >
                 {title}
+            </Text>
+
+            <Text
+                fontFamily="Roboto Condensed"
+                fontSize="12px"
+                noOfLines={1}
+                w="100%"
+                _hover={{
+                    color: "red.500",
+                }}
+            >
+                {writer}
             </Text>
         </Box>
     );
