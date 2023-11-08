@@ -35,10 +35,17 @@ export default function Character({ name, photo }: IProps) {
                 h="205px"
                 position="absolute"
                 top="0"
-                transform={isHover ? "scale(1.1)" : "scale(1.0)"}
-                transition="all 0.2s linear"
+                overflow="hidden"
+                boxSizing="border-box"
             >
-                <Image w="100%" h="100%" objectFit="cover" src={photo} />
+                <Image
+                    w="100%"
+                    h="100%"
+                    objectFit="cover"
+                    src={photo}
+                    transform={isHover ? "scale(1.1)" : "scale(1.0)"}
+                    transition="all 0.2s linear"
+                />
             </Box>
             <Box
                 w="100%"
