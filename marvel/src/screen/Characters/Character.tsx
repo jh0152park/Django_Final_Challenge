@@ -1,5 +1,6 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { CharacterPhoto } from "../../ProjectCommon";
 
 interface IProps {
     name: string;
@@ -8,6 +9,20 @@ interface IProps {
 
 export default function Character({ name, photo }: IProps) {
     const [isHover, setIsHover] = useState(false);
+
+    if (Object.keys(CharacterPhoto).includes(name)) {
+        if (name === "Aaron Stack") photo = CharacterPhoto["Aaron Stack"];
+        else if (name === "Abomination (Ultimate)")
+            photo = CharacterPhoto["Abomination (Ultimate)"];
+        else if (name === "Adam Destine")
+            photo = CharacterPhoto["Adam Destine"];
+        else if (name === "Aero (Aero)") photo = CharacterPhoto["Aero (Aero)"];
+        else if (name === "Agent X (Nijo)")
+            photo = CharacterPhoto["Agent X (Nijo)"];
+        else if (name === "Aginar") photo = CharacterPhoto["Aginar"];
+        else if (name === "Air-Walker (Gabriel Lan)")
+            photo = CharacterPhoto["Air-Walker (Gabriel Lan)"];
+    }
 
     return (
         <Box
