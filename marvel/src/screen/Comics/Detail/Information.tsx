@@ -7,6 +7,8 @@ import {
     Text,
     VStack,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { styled } from "styled-components";
 
 interface IProps {
     title: string;
@@ -20,6 +22,30 @@ interface IProps {
     artist: string;
 }
 
+const MyButton = styled.div`
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    font-family: "Roboto Condense";
+    background: linear-gradient(-45deg, transparent 15px, #f56565 0) right,
+        linear-gradient(135deg, transparent 15px, #f56565 0) left;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    transition: all 0.2s linear;
+    &:hover {
+        color: white;
+        cursor: pointer;
+        background: linear-gradient(-45deg, transparent 15px, #e53e3e 0) right,
+            linear-gradient(135deg, transparent 15px, #e53e3e 0) left;
+        background-size: 50% 100%;
+        background-repeat: no-repeat;
+    }
+`;
+
 export default function Information({
     title,
     genre,
@@ -31,6 +57,12 @@ export default function Information({
     artist,
     isLoading,
 }: IProps) {
+    const navigate = useNavigate();
+
+    function onGoBackClick() {
+        navigate(-1);
+    }
+
     return (
         <HStack
             position="absolute"
@@ -40,25 +72,36 @@ export default function Information({
             pt="150px"
             alignItems="flex-start"
         >
-            <Skeleton
-                minW="350px"
-                minH="540px"
-                maxW="350px"
-                maxH="540px"
-                isLoaded={isLoading}
-                top="50px"
-            >
-                <Box minW="350px" minH="540px" maxW="350px" maxH="540px">
-                    <Image
-                        minW="350px"
-                        minH="540px"
-                        maxW="350px"
-                        maxH="540px"
-                        objectFit="cover"
-                        src={thumbnail}
-                    />
-                </Box>
-            </Skeleton>
+            <VStack>
+                <Skeleton
+                    minW="350px"
+                    minH="540px"
+                    maxW="350px"
+                    maxH="540px"
+                    isLoaded={isLoading}
+                    top="50px"
+                >
+                    <Box minW="350px" minH="540px" maxW="350px" maxH="540px">
+                        <Image
+                            minW="350px"
+                            minH="540px"
+                            maxW="350px"
+                            maxH="540px"
+                            objectFit="cover"
+                            src={thumbnail}
+                        />
+                    </Box>
+                </Skeleton>
+
+                <HStack>
+                    <MyButton onClick={onGoBackClick}>
+                        <Text mt="5px">GO BACK</Text>
+                    </MyButton>
+                    <MyButton>
+                        <Text mt="5px">CHARACTERS</Text>
+                    </MyButton>
+                </HStack>
+            </VStack>
 
             <VStack w="100%" h="100%" alignItems="flex-start" ml="50px">
                 <SkeletonText
