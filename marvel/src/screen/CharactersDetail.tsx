@@ -13,8 +13,11 @@ export default function CharactersDetail() {
         ["character", characterId],
         characterDetail
     );
-    const name = data?.data.results[0].name;
-    const description = data?.data.results[0].description;
+    const name = data?.data.results[0].name as "";
+    const description = data?.data.results[0].description as "";
+    const comics = data?.data.results[0].comics.available as 0;
+    const series = data?.data.results[0].series.available as 0;
+    const stories = data?.data.results[0].stories.available as 0;
     let photo = `${data?.data.results[0].thumbnail.path}.${data?.data.results[0].thumbnail.extension}`;
 
     if (name) {
@@ -35,7 +38,15 @@ export default function CharactersDetail() {
                     }
                 />
                 <Box w="100%" h="100vh" position="absolute" top="0">
-                    <Information />
+                    <Information
+                        name={name}
+                        photo={photo}
+                        description={description}
+                        comics={comics}
+                        series={series}
+                        stories={stories}
+                        isLoading={!isLoading}
+                    />
                 </Box>
             </Box>
         </>
