@@ -1,4 +1,5 @@
 import { Box, Center, Image, Text, VStack } from "@chakra-ui/react";
+import { ComicCharactersPhoto } from "../../../ProjectCommon";
 
 interface IProps {
     name: string;
@@ -7,6 +8,15 @@ interface IProps {
 }
 
 export default function Character({ name, photo, description }: IProps) {
+    if (Object.keys(ComicCharactersPhoto).includes(name)) {
+        if (name === "Colossus (Ultimate)")
+            photo = ComicCharactersPhoto["Colossus (Ultimate)"];
+        else if (name === "Holocaust (Age of Apocalypse)")
+            photo = ComicCharactersPhoto["Holocaust (Age of Apocalypse)"];
+        else if (name === "Vanisher (Ultimate)")
+            photo = ComicCharactersPhoto["Vanisher (Ultimate)"];
+    }
+
     return (
         <Center
             _hover={{
