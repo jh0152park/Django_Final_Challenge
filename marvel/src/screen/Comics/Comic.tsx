@@ -2,6 +2,8 @@ import { Box, Image, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { go_to_top, joinCreator, updateThumbnail } from "../../util/util";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { DeviceStatus } from "../../ProjectCommon";
 
 interface ICreator {
     resourceURI: string;
@@ -22,6 +24,7 @@ export default function Comic({ id, title, thumbnail, creator }: IPorps) {
 
     const navigate = useNavigate();
     const [isHover, setIsHover] = useState(false);
+    const [deviceStatus, setDeviceStatus] = useRecoilState(DeviceStatus);
 
     newThumbnail = updateThumbnail(title);
     if (newThumbnail !== "none") thumbnail = newThumbnail;
@@ -33,7 +36,13 @@ export default function Comic({ id, title, thumbnail, creator }: IPorps) {
 
     return (
         <Box
-            w="240px"
+            w={
+                deviceStatus === "Web"
+                    ? "240px"
+                    : deviceStatus === "Tablet"
+                    ? "180px"
+                    : "350px"
+            }
             mb="20px"
             onMouseOver={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
@@ -43,8 +52,14 @@ export default function Comic({ id, title, thumbnail, creator }: IPorps) {
             onClick={onComicsClick}
         >
             <Box
-                w="240px"
-                h="350px"
+                w="100%"
+                h={
+                    deviceStatus === "Web"
+                        ? "350px"
+                        : deviceStatus === "Tablet"
+                        ? "290px"
+                        : "550px"
+                }
                 mb="35px"
                 boxShadow="0 5px 15px rgba(0,0,0,0.5)"
                 transform={isHover ? "translate(0, -10px)" : ""}
@@ -54,7 +69,7 @@ export default function Comic({ id, title, thumbnail, creator }: IPorps) {
             </Box>
             <Text
                 w="100%"
-                fontSize="15px"
+                fontSize={deviceStatus === "Mobile" ? "20px" : "15px"}
                 fontWeight="bold"
                 fontFamily="Roboto Condensed"
                 color={isHover ? "red.500" : "black"}

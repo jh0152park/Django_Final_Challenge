@@ -7,6 +7,8 @@ import Title from "./Comics/Title";
 import Loading from "./Comics/Loading";
 import { ComicsResponse } from "../types";
 import Comic from "./Comics/Comic";
+import { useRecoilState } from "recoil";
+import { DeviceStatus } from "../ProjectCommon";
 
 export default function Comics() {
     const loadingArray = Array.from({ length: 20 }, () => 0);
@@ -15,6 +17,7 @@ export default function Comics() {
         listComics
     );
     const Comics = data?.data.results;
+    const [deviceStatus, setDeviceStatus] = useRecoilState(DeviceStatus);
 
     return (
         <>
@@ -23,9 +26,20 @@ export default function Comics() {
             </Helmet>
 
             <ComicsBanner />
-            <Box w="100%" px="350px" pt="100px" mb="50px">
+            <Box
+                w="100%"
+                px={deviceStatus === "Web" ? "350px" : "20px"}
+                pt="100px"
+                mb="50px"
+            >
                 <Title />
-                <Grid templateColumns="repeat(5, 1fr)" gap="20px">
+                <Grid
+                    w="100%"
+                    templateColumns={`repeat(${
+                        deviceStatus === "Mobile" ? 1 : 5
+                    }, 1fr)`}
+                    gap="20px"
+                >
                     {isLoading
                         ? loadingArray.map((dummy, index) => (
                               <Loading key={index} />

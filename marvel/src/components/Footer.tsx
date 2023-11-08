@@ -4,11 +4,15 @@ import AboutMarvel from "./Footer/AboutMarvel";
 import Advertising from "./Footer/Advertising";
 import CoCompany from "./Footer/CoCompany";
 import Follow from "./Footer/Follow";
+import { DeviceStatus } from "../ProjectCommon";
+import { useRecoilState } from "recoil";
 
 export default function Footer() {
+    const [deviceStatus, setDeviceStatus] = useRecoilState(DeviceStatus);
+
     return (
         <Center w="100%" h="350px" bg="#181818" pt="30px">
-            <VStack>
+            <VStack w="100%">
                 <HStack h="120px">
                     <Image
                         w="80px"
@@ -16,12 +20,20 @@ export default function Footer() {
                         objectFit="cover"
                         src={require("../resource/images/footer/marvel_logo.jpg")}
                     />
-                    <AboutMarvel />
-                    <Advertising />
-                    <CoCompany />
-                    <Follow />
+                    {deviceStatus !== "Mobile" ? (
+                        <>
+                            <AboutMarvel />
+                            <Advertising />
+                            <CoCompany />
+                            <Follow />{" "}
+                        </>
+                    ) : null}
                 </HStack>
-                <HStack spacing="20px" mt="100px">
+                <HStack
+                    spacing="20px"
+                    mt="100px"
+                    px={deviceStatus === "Mobile" ? "20px" : ""}
+                >
                     <DarkWord name="Terms of Use" hover={true} />
                     <DarkWord name="Privacy Policy" hover={true} />
                     <DarkWord name="Interest-Based Ads" hover={true} />

@@ -1,5 +1,7 @@
 import { Box, Center, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import styled from "styled-components";
+import { DeviceStatus } from "../ProjectCommon";
+import { useRecoilState } from "recoil";
 
 const ReadBox = styled.div`
     width: 150px;
@@ -33,6 +35,8 @@ export default function ComicsBanner() {
         "https://www.marvel.com/articles/comics/read-loki-agent-of-asgard-infinity-comic-series-for-free";
     const bannerImage = require("../resource/images/comics_banner.jpg");
 
+    const [deviceStatus, setDeviceStatus] = useRecoilState(DeviceStatus);
+
     return (
         <Box w="100%" h="570px" bgColor="#111111" position="relative">
             <Image w="100%" h="100%" objectFit="cover" src={bannerImage} />
@@ -43,7 +47,7 @@ export default function ComicsBanner() {
                 position="absolute"
                 top="0"
                 bgColor="rgba(0, 0, 0, 0.7)"
-                px="350px"
+                px={deviceStatus === "Mobile" ? "20px" : "350px"}
                 pt="150px"
             >
                 <VStack
