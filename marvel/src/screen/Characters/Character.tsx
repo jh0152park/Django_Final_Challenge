@@ -1,7 +1,12 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
-export default function Character() {
+interface IProps {
+    name: string;
+    photo: string;
+}
+
+export default function Character({ name, photo }: IProps) {
     const [isHover, setIsHover] = useState(false);
 
     return (
@@ -22,13 +27,29 @@ export default function Character() {
                 bg="red.500"
                 transition="all 0.2s linear"
             ></Box>
+
+            <Box w="100%" h="205px" position="absolute" top="0">
+                <Image w="100%" h="100%" objectFit="cover" src={photo} />
+            </Box>
             <Box
                 w="100%"
-                h="205px"
+                h="140px"
+                color="white"
+                pl="20px"
+                pt="10px"
                 position="absolute"
-                top="0"
-                bg="purple.200"
-            ></Box>
+                top="210px"
+            >
+                <Text
+                    w="100%"
+                    h="100%"
+                    fontFamily="Roboto Condensed"
+                    fontWeight="bold"
+                    fontSize="20px"
+                >
+                    {name}
+                </Text>
+            </Box>
         </Box>
     );
 }
