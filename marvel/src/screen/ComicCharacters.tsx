@@ -21,7 +21,7 @@ export default function ComicCharacters() {
             >
                 <Background url={thumbnail} />
                 <Box w="100%" h="100%" position="absolute" top="0">
-                    <Title />
+                    <Title noOfCharacter={-1} />
                 </Box>
             </Center>
         </>

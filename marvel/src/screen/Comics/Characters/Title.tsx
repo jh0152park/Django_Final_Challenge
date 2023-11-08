@@ -2,7 +2,11 @@ import { Center, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 import { MyButton } from "../Detail/Information";
 import { useNavigate } from "react-router-dom";
 
-export default function Title() {
+interface IProps {
+    noOfCharacter: number;
+}
+
+export default function Title({ noOfCharacter }: IProps) {
     const navigate = useNavigate();
 
     function onGoBackClick() {
@@ -21,7 +25,11 @@ export default function Title() {
                     fontFamily="Roboto Condensed"
                     fontSize="40px"
                 >
-                    CHARACTERS
+                    {noOfCharacter < 0
+                        ? "CHARACTERS"
+                        : noOfCharacter === 0
+                        ? "0 CHARACTER"
+                        : `${noOfCharacter} CHARACTERS`}
                 </Heading>
                 <HStack>
                     <MyButton onClick={onGoBackClick}>
