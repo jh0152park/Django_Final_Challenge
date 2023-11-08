@@ -3,7 +3,7 @@ import { useState } from "react";
 import { CharacterPhoto, CharacterThumbnail } from "../../ProjectCommon";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { updateCharacterThumbnail } from "../../util/util";
+import { go_to_top, updateCharacterThumbnail } from "../../util/util";
 
 interface IProps {
     id: number;
@@ -21,6 +21,7 @@ export default function Character({ id, name, photo }: IProps) {
     }
 
     function onCharacterClick() {
+        go_to_top(0);
         navigate(`/characters/${id}`);
     }
 
