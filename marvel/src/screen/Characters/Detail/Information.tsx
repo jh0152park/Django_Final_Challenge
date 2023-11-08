@@ -8,9 +8,11 @@ import {
     SkeletonCircle,
     Text,
     VStack,
+    keyframes,
 } from "@chakra-ui/react";
 import { MyButton } from "../../Comics/Detail/Information";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 interface IProps {
     name: string;
@@ -22,6 +24,12 @@ interface IProps {
     isLoading: boolean;
 }
 
+const spin = keyframes`
+    100% {
+        transform: rotateY(360deg);
+    }
+`;
+
 export default function Information({
     name,
     photo,
@@ -32,6 +40,7 @@ export default function Information({
     isLoading,
 }: IProps) {
     const navigate = useNavigate();
+    const spinAnimation = `${spin} 5s linear infinite`;
 
     function onGoBackClick() {
         navigate(-1);
@@ -43,6 +52,9 @@ export default function Information({
 
     return (
         <>
+            <Helmet>
+                <title>{!isLoading ? "Marvel Characters" : `${name}`}</title>
+            </Helmet>
             <Center w="100%" h="150px" my="20px">
                 <VStack w="100%">
                     <Skeleton w="700px" height="60px" isLoaded={isLoading}>
@@ -68,7 +80,14 @@ export default function Information({
 
             <VStack mt="50px">
                 <SkeletonCircle size="300px" isLoaded={isLoading}>
-                    <Box w="300px" h="300px">
+                    <Box
+                        w="300px"
+                        h="300px"
+                        _hover={{
+                            cursor: "pointer",
+                        }}
+                        animation={spinAnimation}
+                    >
                         <Image
                             w="100%"
                             h="100%"
