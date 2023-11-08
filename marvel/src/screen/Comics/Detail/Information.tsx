@@ -7,7 +7,7 @@ import {
     Text,
     VStack,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 
 interface IProps {
@@ -58,9 +58,14 @@ export default function Information({
     isLoading,
 }: IProps) {
     const navigate = useNavigate();
+    const { comicId } = useParams();
 
     function onGoBackClick() {
         navigate(-1);
+    }
+
+    function onCharacterClick() {
+        navigate(`/comics/${comicId}/characters`);
     }
 
     return (
@@ -97,7 +102,7 @@ export default function Information({
                     <MyButton onClick={onGoBackClick}>
                         <Text mt="5px">GO BACK</Text>
                     </MyButton>
-                    <MyButton>
+                    <MyButton onClick={onCharacterClick}>
                         <Text mt="5px">CHARACTERS</Text>
                     </MyButton>
                 </HStack>
