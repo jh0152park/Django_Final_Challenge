@@ -7,6 +7,8 @@ import { comicDetail } from "../api";
 import Information from "./Comics/Detail/Information";
 import { updateThumbnail } from "../util/util";
 import { Helmet } from "react-helmet";
+import { useSetRecoilState } from "recoil";
+import { ComicThumbnail } from "../ProjectCommon";
 
 export default function ComicsDetail() {
     const { comicId } = useParams();
@@ -14,6 +16,7 @@ export default function ComicsDetail() {
         ["comics", comicId],
         comicDetail
     );
+    const setComicThumbnail = useSetRecoilState(ComicThumbnail);
     const COMIC_DETAIL = data?.data.results[0];
 
     let title = "";
@@ -45,10 +48,9 @@ export default function ComicsDetail() {
                 (item) => item.role === "penciller (cover)"
             )?.name || "-";
 
-        console.log(`writers: ${writers}`);
-
         newThumbnail = updateThumbnail(title);
         if (newThumbnail !== "none") thumbnail = newThumbnail;
+        setComicThumbnail(thumbnail);
     }
 
     return (
