@@ -6,6 +6,7 @@ import Intro from "./screen/Intro";
 import Comics from "./screen/Comics";
 import Characters from "./screen/Characters";
 import ComicsDetail from "./screen/ComicsDetail";
+import ComicCharacters from "./screen/ComicCharacters";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: "/comics/:comicId",
                 element: <ComicsDetail />,
+            },
+            {
+                path: "/comics/:comicI/characters",
+                element: <ComicCharacters />,
             },
         ],
     },
