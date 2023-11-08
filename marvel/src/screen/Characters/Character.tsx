@@ -20,6 +20,8 @@ export default function Character({ name, photo }: IProps) {
             _hover={{
                 cursor: "pointer",
             }}
+            overflow="hidden"
+            boxSizing="border-box"
         >
             <Box
                 w="100%"
@@ -28,7 +30,14 @@ export default function Character({ name, photo }: IProps) {
                 transition="all 0.2s linear"
             ></Box>
 
-            <Box w="100%" h="205px" position="absolute" top="0">
+            <Box
+                w="100%"
+                h="205px"
+                position="absolute"
+                top="0"
+                transform={isHover ? "scale(1.1)" : "scale(1.0)"}
+                transition="all 0.2s linear"
+            >
                 <Image w="100%" h="100%" objectFit="cover" src={photo} />
             </Box>
             <Box
