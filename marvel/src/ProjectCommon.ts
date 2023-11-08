@@ -10,6 +10,11 @@ export const CharacterThumbnail = atom({
     key: "CharacterThumbnail",
 });
 
+export const DeviceStatus = atom({
+    default: "Web",
+    key: "DeviceStatus",
+});
+
 export const ComicCharactersPhoto = {
     "Colossus (Ultimate)":
         "https://cdn.marvel.com/content/1x/colossus%28ultimate%29.jpg",

@@ -1,13 +1,37 @@
 import { Box, Center, HStack, Heading, Image, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
+import { DeviceStatus } from "../ProjectCommon";
+import { useRecoilState } from "recoil";
 
 const SCREEN_HEIGHT = window.innerHeight;
 
 export default function Intro() {
     const navigate = useNavigate();
     const [isHover, setIsHover] = useState(false);
+    const [fontSize, setFontSize] = useState(70);
+    const [deviceStatus, setDeviceStatus] = useRecoilState(DeviceStatus);
+
+    const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const resizeListener = () => {
+            setInnerWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", resizeListener);
+        if (innerWidth < 500) {
+            setFontSize(20);
+            setDeviceStatus("Mobile");
+        } else if (innerWidth > 1025) {
+            setDeviceStatus("Web");
+            setFontSize(70);
+        } else {
+            setDeviceStatus("Tablet");
+            setFontSize(50);
+        }
+        console.log(deviceStatus);
+    });
 
     function toggleHover() {
         setIsHover((prev) => !prev);
@@ -28,21 +52,33 @@ export default function Intro() {
 
                 <Center w="100%" h="100%" position="absolute" top="0" left="0">
                     <VStack spacing="30px" zIndex="99">
-                        <Heading fontFamily="Bungee Spice" fontSize="70px">
+                        <Heading
+                            fontFamily="Bungee Spice"
+                            fontSize={`${fontSize}px`}
+                        >
                             LET'S EXPLORE
                         </Heading>
-                        <Heading fontFamily="Bungee Spice" fontSize="70px">
+                        <Heading
+                            fontFamily="Bungee Spice"
+                            fontSize={`${fontSize}px`}
+                        >
                             MARVEL COMICS UNIVERSE
                         </Heading>
-                        <Heading fontFamily="Bungee Spice" fontSize="70px">
+                        <Heading
+                            fontFamily="Bungee Spice"
+                            fontSize={`${fontSize}px`}
+                        >
                             IF YOU READY,
                         </Heading>
-                        <Heading fontFamily="Bungee Spice" fontSize="70px">
+                        <Heading
+                            fontFamily="Bungee Spice"
+                            fontSize={`${fontSize}px`}
+                        >
                             SAY
                         </Heading>
                         <Heading
                             fontFamily="Bungee Spice"
-                            fontSize="70px"
+                            fontSize={`${fontSize}px`}
                             _hover={{
                                 cursor: "pointer",
                                 transform: "scale(1.1)",
