@@ -18,7 +18,7 @@ export default function Title({ noOfCharacter }: IProps) {
     }
 
     return (
-        <Center w="100%" h="150px" mb="50px">
+        <Center w="100%" h="150px" mb="15px">
             <VStack w="100%">
                 <Heading
                     color="white"

@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import { listComicCharacters } from "../api";
 import { CharactersResponse } from "../types";
 import Loading from "./Comics/Characters/Loading";
+import Character from "./Comics/Characters/Character";
 
 export default function ComicCharacters() {
     const { comicId } = useParams();
@@ -19,8 +20,16 @@ export default function ComicCharacters() {
         listComicCharacters
     );
     const noOfCharacter = data?.data.total as -1;
+    const characters = data?.data.results.map((character) => character.name);
+    const photos = data?.data.results.map(
+        (character) =>
+            `${character.thumbnail.path}.${character.thumbnail.extension}`
+    );
+    const descriptions = data?.data.results.map(
+        (character) => character.description
+    );
 
-    // console.log(noOfCharacter);
+    // console.log(characters);
 
     return (
         <>
@@ -35,6 +44,15 @@ export default function ComicCharacters() {
                         {isLoading
                             ? loadingArray.map((dummy, index) => (
                                   <Loading key={index} />
+                              ))
+                            : characters && photos && descriptions
+                            ? characters.map((name, index) => (
+                                  <Character
+                                      key={index}
+                                      name={name}
+                                      photo={photos[index]}
+                                      description={descriptions[index]}
+                                  />
                               ))
                             : null}
                     </Grid>
