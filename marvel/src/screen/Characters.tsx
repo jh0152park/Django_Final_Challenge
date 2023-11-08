@@ -20,8 +20,6 @@ export default function Characters() {
             `${character.thumbnail.path}.${character.thumbnail.extension}`
     );
 
-    // console.log(characters);
-
     return (
         <>
             <Helmet>
