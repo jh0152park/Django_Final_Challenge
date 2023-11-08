@@ -1,5 +1,5 @@
 import { Center, HStack, Image, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { go_to_top } from "../util/util";
 
@@ -9,13 +9,7 @@ export default function Header() {
 
     const LOGO =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/220px-Marvel_Logo.svg.png";
-    const [currentTab, setCurrentTab] = useState(
-        location.pathname === "/"
-            ? "COMICS"
-            : location.pathname === "/comics"
-            ? "COMICS"
-            : "CHARACTERS"
-    );
+    const [currentTab, setCurrentTab] = useState("COMICS");
 
     function onComicsClick() {
         setCurrentTab("COMICS");
@@ -28,6 +22,14 @@ export default function Header() {
         go_to_top(0);
         if (location.pathname !== "/characters") navigate("/characters");
     }
+
+    useEffect(() => {
+        setCurrentTab(
+            location.pathname.split("/")[1] === "comics"
+                ? "COMICS"
+                : "CHARACTERS"
+        );
+    }, [location.pathname]);
 
     return (
         <Center w="100%" h="100px" bg="#181818">
