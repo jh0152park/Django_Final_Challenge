@@ -1,4 +1,11 @@
-import { Center, HStack, Skeleton, Text, VStack } from "@chakra-ui/react";
+import {
+    Center,
+    HStack,
+    Skeleton,
+    SkeletonCircle,
+    Text,
+    VStack,
+} from "@chakra-ui/react";
 import { MyButton } from "../../Comics/Detail/Information";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +22,7 @@ export default function Information() {
 
     return (
         <>
-            <Center w="100%" h="150px" mb="15px" bg="pink">
+            <Center w="100%" h="150px" mb="15px">
                 <VStack w="100%">
                     <Skeleton w="400px" height="60px" />
                     <HStack>
@@ -28,6 +35,12 @@ export default function Information() {
                     </HStack>
                 </VStack>
             </Center>
+
+            <VStack mt="50px">
+                <SkeletonCircle size="300px"></SkeletonCircle>
+                <Skeleton mt="20px" w="700px" h="150px"></Skeleton>
+                <Skeleton mt="20px" w="700px" h="90px"></Skeleton>
+            </VStack>
         </>
     );
 }
