@@ -2,6 +2,8 @@ import { Center, HStack, Image, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { go_to_top } from "../util/util";
+import { useSetRecoilState } from "recoil";
+import { DeviceStatus } from "../ProjectCommon";
 
 export default function Header() {
     const navigate = useNavigate();
@@ -10,6 +12,25 @@ export default function Header() {
     const LOGO =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/220px-Marvel_Logo.svg.png";
     const [currentTab, setCurrentTab] = useState("COMICS");
+    const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+    const setDeviceStatus = useSetRecoilState(DeviceStatus);
+
+    useEffect(() => {
+        const resizeListener = () => {
+            setInnerWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", resizeListener);
+        if (innerWidth < 500) {
+            setDeviceStatus("Mobile");
+        } else if (innerWidth > 1025) {
+            setDeviceStatus("Web");
+        } else {
+            setDeviceStatus("Tablet");
+        }
+    });
+
+    console.log("innerWidth", innerWidth);
+    // 500 1024
 
     function onComicsClick() {
         setCurrentTab("COMICS");
