@@ -13,6 +13,13 @@ export default function Characters() {
         ["characters"],
         listCharacters
     );
+    const characters = data?.data.results.map((character) => character.name);
+    const photos = data?.data.results.map(
+        (character) =>
+            `${character.thumbnail.path}.${character.thumbnail.extension}`
+    );
+
+    // console.log(characters);
 
     return (
         <>
@@ -29,13 +36,19 @@ export default function Characters() {
                     rowGap="50px"
                     gap="10px"
                 >
-                    {isLoading ? (
-                        loadingArray.map((dummy, index) => (
-                            <Loading key={index} />
-                        ))
-                    ) : (
-                        <Character />
-                    )}
+                    {isLoading
+                        ? loadingArray.map((dummy, index) => (
+                              <Loading key={index} />
+                          ))
+                        : !isLoading && characters && photos
+                        ? characters.map((name, index) => (
+                              <Character
+                                  key={index}
+                                  name={name}
+                                  photo={photos[index]}
+                              />
+                          ))
+                        : null}
                 </Grid>
             </Box>
         </>
