@@ -8,7 +8,13 @@ interface IProps {
 
 export default function Character({ name, photo, description }: IProps) {
     return (
-        <Center>
+        <Center
+            _hover={{
+                cursor: "pointer",
+                transform: "scale(1.2)",
+            }}
+            transition="all 0.2s linear"
+        >
             <VStack>
                 <Box w="100px" h="100px">
                     <Image
