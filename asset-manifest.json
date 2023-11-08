@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Django_Final_Challenge/static/css/main.14dbd72b.css",
+    "main.js": "/Django_Final_Challenge/static/js/main.dabbb1e4.js",
+    "static/media/notfound.jpg": "/Django_Final_Challenge/static/media/notfound.8a9ef6b1abf94d02568d.jpg",
+    "static/media/characters_banner.jpg": "/Django_Final_Challenge/static/media/characters_banner.c374c9770ea5095002b6.jpg",
+    "static/media/welcome.jpg": "/Django_Final_Challenge/static/media/welcome.32eadf8915f1b83c628c.jpg",
+    "static/media/loading.jpg": "/Django_Final_Challenge/static/media/loading.26609614cd052e39d583.jpg",
+    "static/media/comics_banner.jpg": "/Django_Final_Challenge/static/media/comics_banner.f44fb69b8a93a39a2117.jpg",
+    "index.html": "/Django_Final_Challenge/index.html",
+    "main.14dbd72b.css.map": "/Django_Final_Challenge/static/css/main.14dbd72b.css.map",
+    "main.dabbb1e4.js.map": "/Django_Final_Challenge/static/js/main.dabbb1e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14dbd72b.css",
+    "static/js/main.dabbb1e4.js"
+  ]
+}
