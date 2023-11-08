@@ -13,6 +13,7 @@ export default function Characters() {
         ["characters"],
         listCharacters
     );
+    const ids = data?.data.results.map((character) => character.id);
     const characters = data?.data.results.map((character) => character.name);
     const photos = data?.data.results.map(
         (character) =>
@@ -40,10 +41,11 @@ export default function Characters() {
                         ? loadingArray.map((dummy, index) => (
                               <Loading key={index} />
                           ))
-                        : !isLoading && characters && photos
+                        : !isLoading && characters && photos && ids
                         ? characters.map((name, index) => (
                               <Character
                                   key={index}
+                                  id={ids[index]}
                                   name={name}
                                   photo={photos[index]}
                               />

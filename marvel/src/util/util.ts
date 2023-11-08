@@ -1,3 +1,4 @@
+import { CharacterPhoto } from "../ProjectCommon";
 import { Item } from "../types";
 
 export function go_to_top(position: number): void {
@@ -18,6 +19,28 @@ export function updateThumbnail(title: string) {
     } else if (title === "Marvel Previews (2017)") {
         return "https://cdn.marvel.com/content/1x/msha_s2.jpg";
     } else return "none";
+}
+
+export function updateCharacterThumbnail(name: string) {
+    if (Object.keys(CharacterPhoto).includes(name)) {
+        if (name === "Aaron Stack") {
+            return CharacterPhoto["Aaron Stack"];
+        } else if (name === "Abomination (Ultimate)") {
+            return CharacterPhoto["Abomination (Ultimate)"];
+        } else if (name === "Adam Destine") {
+            return CharacterPhoto["Adam Destine"];
+        } else if (name === "Aero (Aero)") {
+            return CharacterPhoto["Aero (Aero)"];
+        } else if (name === "Agent X (Nijo)") {
+            return CharacterPhoto["Agent X (Nijo)"];
+        } else if (name === "Aginar") {
+            return CharacterPhoto["Aginar"];
+        } else if (name === "Air-Walker (Gabriel Lan)") {
+            return CharacterPhoto["Air-Walker (Gabriel Lan)"];
+        } else {
+            return "none";
+        }
+    }
 }
 
 export function joinCreator(creators: Item[]) {

@@ -1,27 +1,27 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { CharacterPhoto } from "../../ProjectCommon";
+import { CharacterPhoto, CharacterThumbnail } from "../../ProjectCommon";
+import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { updateCharacterThumbnail } from "../../util/util";
 
 interface IProps {
+    id: number;
     name: string;
     photo: string;
 }
 
-export default function Character({ name, photo }: IProps) {
+export default function Character({ id, name, photo }: IProps) {
+    const navigate = useNavigate();
     const [isHover, setIsHover] = useState(false);
 
-    if (Object.keys(CharacterPhoto).includes(name)) {
-        if (name === "Aaron Stack") photo = CharacterPhoto["Aaron Stack"];
-        else if (name === "Abomination (Ultimate)")
-            photo = CharacterPhoto["Abomination (Ultimate)"];
-        else if (name === "Adam Destine")
-            photo = CharacterPhoto["Adam Destine"];
-        else if (name === "Aero (Aero)") photo = CharacterPhoto["Aero (Aero)"];
-        else if (name === "Agent X (Nijo)")
-            photo = CharacterPhoto["Agent X (Nijo)"];
-        else if (name === "Aginar") photo = CharacterPhoto["Aginar"];
-        else if (name === "Air-Walker (Gabriel Lan)")
-            photo = CharacterPhoto["Air-Walker (Gabriel Lan)"];
+    const updatePhoto = updateCharacterThumbnail(name);
+    if (updatePhoto && updatePhoto !== "none") {
+        photo = updatePhoto;
+    }
+
+    function onCharacterClick() {
+        navigate(`/characters/${id}`);
     }
 
     return (
@@ -32,6 +32,7 @@ export default function Character({ name, photo }: IProps) {
             position="relative"
             onMouseOver={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
+            onClick={onCharacterClick}
             _hover={{
                 cursor: "pointer",
             }}

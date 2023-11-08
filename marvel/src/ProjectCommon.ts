@@ -5,6 +5,11 @@ export const ComicThumbnail = atom({
     key: "ComicThumbnail",
 });
 
+export const CharacterThumbnail = atom({
+    default: "",
+    key: "CharacterThumbnail",
+});
+
 export const ComicCharactersPhoto = {
     "Colossus (Ultimate)":
         "https://cdn.marvel.com/content/1x/colossus%28ultimate%29.jpg",

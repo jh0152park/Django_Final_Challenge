@@ -9,7 +9,13 @@ export default function Header() {
 
     const LOGO =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/220px-Marvel_Logo.svg.png";
-    const [currentTab, setCurrentTab] = useState("COMICS");
+    const [currentTab, setCurrentTab] = useState(
+        location.pathname === "/"
+            ? "COMICS"
+            : location.pathname === "/comics"
+            ? "COMICS"
+            : "CHARACTERS"
+    );
 
     function onComicsClick() {
         setCurrentTab("COMICS");
